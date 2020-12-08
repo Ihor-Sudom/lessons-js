@@ -4,16 +4,16 @@ function addPropertyV1(obj, key, value) {
   return obj;
 }
 
-function v2(obj, key, val) {
-  return Object.assign(obj, {[key]: val});
+function addPropertyV2(obj, key, value) {
+  return Object.assign(obj, {[key]: value});
 }
 
-function v3(obj, key, val) {
-  return Object.assign({}, obj, {[key]: val})
+function addPropertyV3(obj, key, value) {
+  return Object.assign({}, obj, {[key]: value})
 }
 
-function v4(obj, key, val) {
-  return {...obj, ...{[key]: val}};
+function addPropertyV4(obj, key, value) {
+  return {...obj, ...{[key]: value}};
 }
 
 
