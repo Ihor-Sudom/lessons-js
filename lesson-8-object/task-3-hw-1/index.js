@@ -16,7 +16,7 @@ console.log(transaction.currency);
 console.log(transaction['value']);
 const key = 'operation';
 /* выведите в консоль значение свойства, название которого находится в переменной key - используйте квадратные скобки */
-console.log(key['operation']);
+console.log(transaction['operation']);
 
 /* выведите в консоль значение свойства 'company' используя квадратные скобки */
 console.log(transaction.agent['company']);
