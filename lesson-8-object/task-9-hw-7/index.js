@@ -1,10 +1,11 @@
 
 function getAdults(obj) {
-  let result = {};
-    for (let i in obj) {
-      let objec  = obj[i];
-        if (objec)
-    }
+  let obj2 = {};
+  for (let i in obj) {
+      if (obj[i] >= 18) {
+        obj2[i] = obj[i];
+      }
+  }
+  return obj2;
 }
 
-console.log(getAdults({ 'John Doe': 19, 'Tom': 17, 'Bob': 18 }));

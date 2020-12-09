@@ -10,8 +10,3 @@ function pickProps(obj, arr) {
   return obj2;
 }
 
-console.log(pickProps({
-  a: 1,
-  b: 2,
-  c: 3
-}, ['g', 'y']));
