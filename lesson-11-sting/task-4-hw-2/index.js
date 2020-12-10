@@ -5,4 +5,3 @@ function countOccurrences(text, textSearch) {
   return null;
 }
 
-console.log(countOccurrences("sos fret new new fr fr new", ""));
