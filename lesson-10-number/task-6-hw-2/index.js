@@ -8,8 +8,9 @@ function getRandomNumbers(len, start, end) {
 
 function randomNumbersOptions(len, start, end) {
   if (start > 0 && end > 0) {
-    return Array.from({ length: len }, (a, b) => Math.floor(Math.floor(start) + Math.random() * Math.floor(end - start)));
+    return Array(len).fill(Math.floor(start)).map(item => Math.floor(item + Math.random() * Math.floor(end - start)));
   }
-    return Array.from({ length: len }, (a, b) => Math.floor(Math.ceil(start) + Math.random() * Math.ceil(end - start)));
+    return Array(len).fill(Math.ceil(start)).map(item => Math.floor(item + Math.random() * Math.ceil(end - start)));
 }
 
+console.log(getRandomNumbers(6, 2, 8));
