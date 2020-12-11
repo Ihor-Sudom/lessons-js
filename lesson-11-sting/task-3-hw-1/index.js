@@ -13,7 +13,8 @@ function splitString2(text, n) {
     if (chunk.length === 0) {
       break;
     }
-    chunk.length === n ? strArr.push(chunk) : strArr.push(chunk.concat('.'.repeat(n - chunk.length)));
+    chunk = chunk.concat('.'.repeat(n - chunk.length));
+    strArr.push(chunk);
     startPosition += n;
   }
   return strArr;
