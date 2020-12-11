@@ -13,9 +13,8 @@ function splitString2(text, n) {
     if (chunk.length === 0) {
       break;
     }
-    chunk.le === n ? strArr.push(chunk) : strArr.push(chunk.concat('.'.repeat(n - chunk.length)));
+    chunk.length === n ? strArr.push(chunk) : strArr.push(chunk.concat('.'.repeat(n - chunk.length)));
     startPosition += n;
   }
   return strArr;
 }
-
