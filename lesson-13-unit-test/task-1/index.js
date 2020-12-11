@@ -1,4 +1,4 @@
 
-it('17 и в Африку 17', () => {
-  expect(17).toEqual(17);
-});
+function getEvenNumbers(arr) {
+  return arr.filter(el => el % 2 == 0);
+}
