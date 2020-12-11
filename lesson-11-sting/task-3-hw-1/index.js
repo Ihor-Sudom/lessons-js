@@ -1,4 +1,4 @@
-function splitString(text, n) {
+function splitString(text, n = 10) {
   if (typeof text == "string") {
     return splitString2(text, n);
   }
@@ -8,26 +8,14 @@ function splitString(text, n) {
 function splitString2(text, n) {
   const strArr = [];
   let startPosition = 0;
-  if (n === undefined) {
-    n = 10;
-  }
   while (true) {
     let chunk = text.substr(startPosition, n);
     if (chunk.length === 0) {
       break;
     }
-    strArr.push(chunk);
+    chunk.le === n ? strArr.push(chunk) : strArr.push(chunk.concat('.'.repeat(n - chunk.length)));
     startPosition += n;
   }
-  return strArr.map(item => item.length == n ? item : plusPoint(item, n));
+  return strArr;
 }
 
-function plusPoint(x, n) {
-  let text = x;
-  for (let i=x.length; i < n; i++) {
-    text += '.';
-  }
-  return text;
-}
-
-console.log(splitString('fhjgfghjhdfg', 5));
