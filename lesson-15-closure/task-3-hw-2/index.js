@@ -28,12 +28,8 @@ export function createLogger() {
 
   function getRecords(str) {
     const memorySort = memory.sort((a, b) => b.dateTime - a.dateTime);
-    const stringValidation = (str === 'warn' || str === 'error' || str === 'log');
-    if (str === undefined) {
-      return memorySort;
-    }
-    return stringValidation ? memorySort.filter(el => el.type === str)
-                            : [];
+    return str === undefined ? memorySort
+                             : memorySort.filter(el => el.type === str);
   };
 
   return {
