@@ -6,15 +6,13 @@ const student = {
 function sayName() {
   console.log(this.name);
 }
-/* const fun = sayName.bind(student);
-fun(); */
 
 /*
  * создайте ф-цию sayStudentName которая будет выводить в консоль имя студента 'Tom'
  * используйте .bind и ф-цию sayName
  */
-export const sayBruceName = sayName.bind(student);
-sayBruceName();
+export const sayStudentName = sayName.bind(student);
+sayStudentName();
 
 /*
  * создайте ф-цию sayBruceName которая будет выводить в консоль имя 'Bruce'
