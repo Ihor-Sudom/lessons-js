@@ -1,5 +1,5 @@
 
-/* export */ const vehicle = {
+export const vehicle = {
   name: 'Argo',
   move() {
     console.log(`${this.name} is moving`);
@@ -9,7 +9,7 @@
   },
 };
 
-/* export */ const ship = {
+export const ship = {
   startMachine() {
     this.stop();
     console.log(`${this.name} lifting anchor up`);
