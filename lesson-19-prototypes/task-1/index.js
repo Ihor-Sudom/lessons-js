@@ -11,13 +11,13 @@ export const vehicle = {
 
 export const ship = {
   startMachine() {
-    this.stop();
     console.log(`${this.name} lifting anchor up`);
     this.move();
+    this.stop();
   },
   stopMachine() {
-    console.log(`${this.name} lifting anchor down`);
     this.stop();
+    console.log(`${this.name} lifting anchor down`);
   },
 };
 
