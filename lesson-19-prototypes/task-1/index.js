@@ -1,5 +1,5 @@
 
-export const vehicle = {
+/* export */ const vehicle = {
   name: 'Argo',
   move() {
     console.log(`${this.name} is moving`);
@@ -9,18 +9,19 @@ export const vehicle = {
   },
 };
 
-export const ship = {
+/* export */ const ship = {
   startMachine() {
+    this.stop();
     console.log(`${this.name} lifting anchor up`);
     this.move();
   },
   stopMachine() {
-    ship.stop();
+    this.stop();
     console.log(`${this.name} lifting anchor down`);
   },
 };
 
 Object.setPrototypeOf(ship, vehicle);
 
-ship.stop();
+
 
