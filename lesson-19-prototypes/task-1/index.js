@@ -16,8 +16,8 @@ export const ship = {
     this.move();
   },
   stopMachine() {
-    this.stop();
     console.log(`${this.name} lifting anchor down`);
+    this.stop();
   },
 };
 
