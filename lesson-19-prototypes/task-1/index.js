@@ -15,13 +15,16 @@ export const ship = {
     this.move();
   },
   stopMachine() {
-    this.move();
     this.stop();
-    console.log(`${this.name} lifting anchor down`);
+    this.liftAnchorDown();
   },
+  liftAnchorDown() {
+    console.log(`${this.name} lifting anchor down`);
+  }
 };
 
 Object.setPrototypeOf(ship, vehicle);
+
 
 
 
