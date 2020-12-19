@@ -14,6 +14,7 @@ export const ship = {
     console.log(`${this.name} lifting anchor up`);
     this.move();
     this.stop();
+    console.log(`${this.name} lifting anchor down`);
   },
   stopMachine() {
     this.stop();
