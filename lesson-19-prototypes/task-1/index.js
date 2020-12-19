@@ -13,10 +13,8 @@ export const ship = {
   startMachine() {
     console.log(`${this.name} lifting anchor up`);
     this.move();
-    stopMachine();
   },
   stopMachine() {
-    startMachine();
     this.stop();
     console.log(`${this.name} lifting anchor down`);
   },
