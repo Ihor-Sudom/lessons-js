@@ -5,25 +5,25 @@ export const vehicle = {
     console.log(`${this.name} is moving`);
   },
   stop() {
-    console.log(`${this.name} is stopped`);
-  },
-  liftAnchorUp() {
-    console.log(`${this.name} lifting anchor up`);
-  },
-  liftAnchorDown() {
-    console.log(`${this.name} lifting anchor down`);
+    console.log(`${this.name} is stoped`);
   },
 }
 
 export const ship = {
+  liftAnchorUp() {
+    console.log(`${this.name} lifting anchor up`);
+  },
   startMachine() {
-    this.liftAnchorUp();
+    liftAnchorUp()
     this.move();
   },
   stopMachine() {
     this.stop();
     this.liftAnchorDown();
   },
+  liftAnchorDown() {
+    console.log(`${this.name} lifting anchor down`);
+  }
 }
 
 Object.setPrototypeOf(ship, vehicle);
