@@ -7,8 +7,11 @@ export class User {
   }
  
   static createEmpty() {
-    this.name = '';
-    this.age = null;
+    const user = {
+      this.name = '',
+      this.age = null,
+    };
+    return user;
   }
 
   sayHi() {
