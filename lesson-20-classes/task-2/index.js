@@ -22,13 +22,13 @@ export class Ship extends Vehicle {
     this.maxSpeed = maxSpeed;
   }
 
-  startMachine() {
+  move() {
     console.log(`${this.name} lifting anchor up`);
-    this.move();
+    super.move();
   }
 
-  stopMachine() {
-    this.stop();
+  stop() {
+    super.stop();
     console.log(`${this.name} lifting anchor down`);
   }
 }
