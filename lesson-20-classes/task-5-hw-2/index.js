@@ -38,8 +38,6 @@ export class UserRepository {
   }
 
   getUserNameById(id) {
-    return users.find(el => el.id == id);
+    return users.find(el => el.id == id).name;
   }
 }
-
-
