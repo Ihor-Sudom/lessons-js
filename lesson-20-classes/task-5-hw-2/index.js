@@ -30,14 +30,14 @@ export class UserRepository {
   }
 
   getUserNames() {
-    return users.map(el => el.name);
+    return this._users.map(el => el.name);
   }
 
   getUserIds() {
-    return users.map(el => el.id);
+    return this._users.map(el => el.id);
   }
 
   getUserNameById(id) {
-    return users.find(el => el.id == id).name;
+    return this._users.find(el => el.id == id).name;
   }
 }
