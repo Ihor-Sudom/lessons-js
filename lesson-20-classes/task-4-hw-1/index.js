@@ -2,11 +2,11 @@
 export class Order {
 
   constructor (price, city, type) {
-    this.id = string(Math.random());
+    this.id = Math.random().toString();
     this.price = price;
     this.dateCreated = new Date();
     this.isConfirmed = false;
-    this.dateConfirmed = new Date();
+    this.dateConfirmed = '';
     this.city = city;
     this.type = type;
   }
@@ -19,9 +19,9 @@ export class Order {
   }
 
   confirmOrder() {
-    if (this.isConfirmed === 'false') {
+    if (!this.isConfirmed) {
       this.isConfirmed = true;
-      this.isConfirmed = new Date();
+      this.dateConfirmed = new Date();
     }
   }
 
@@ -32,3 +32,5 @@ export class Order {
     return false;
   }
 }
+
+
