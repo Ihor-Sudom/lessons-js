@@ -1,5 +1,5 @@
 
-class User {
+export class User {
   constructor (id, name, sessionId) {
     this._id = id;
     this._name = name;
@@ -20,9 +20,9 @@ class User {
 }
 
 
-class UserRepository {
-  constructor (arr) {
-    this._users = Object.freeze(arr);
+export class UserRepository {
+  constructor (users) {
+    this._users = Object.freeze(users);
   }
 
   get users() {
@@ -30,15 +30,15 @@ class UserRepository {
   }
 
   getUserNames() {
-    return arr.map(el => el.name);
+    return users.map(el => el.name);
   }
 
   getUserIds() {
-    return arr.map(el => el.id);
+    return users.map(el => el.id);
   }
 
   getUserNameById(id) {
-    return arr.find(el => el.id == id);
+    return users.find(el => el.id == id);
   }
 }
 
