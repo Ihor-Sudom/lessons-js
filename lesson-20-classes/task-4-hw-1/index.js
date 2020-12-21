@@ -12,10 +12,8 @@ export class Order {
   }
 
   checkPrice() {
-    if (this.price > 1000) {
-      return true;
-    }
-    return false;
+    const orderAmount = 1000;
+    return this.price > orderAmount ? true : false;
   }
 
   confirmOrder() {
@@ -26,11 +24,7 @@ export class Order {
   }
 
   isValidType() {
-    if (this.type === 'Buy' || this.type === "Sell") {
-      return true;
-    }
-    return false;
+    const fieldValidationType = this.type === 'Buy' || this.type === "Sell";
+    return fieldValidationType ? true : false;
   }
 }
-
-
