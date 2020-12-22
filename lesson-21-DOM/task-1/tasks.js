@@ -6,7 +6,7 @@ const tasks = [
   { text: 'Visit doctor', done: true },
   { text: 'Buy meat', done: true },
 ];
-export const renderListItems = listItems => {
+const renderListItems = listItems => {
   const listElem = document.querySelector('.list');
   const listItemsElems = listItems.map(itemText => {
     const listItemElem = document.createElement('li');
