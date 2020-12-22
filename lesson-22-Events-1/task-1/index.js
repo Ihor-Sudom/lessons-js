@@ -40,8 +40,9 @@ spanElem.removeEventListener('click', logGreenSpan);
 const buttonClearElem = document.querySelector('.clear-btn');
 
 const buttonClear = logButton = () => {
-  const eventListElem = document.querySelector('.events-list > span');
-  eventListElem.remove();
+  const eventListElem = document.querySelectorAll('.events-list > span');
+  console.log(eventListElem);
+  eventListElem.map(el => el.remove());
 };
 
 buttonClearElem.addEventListener('click', buttonClear);
