@@ -1,7 +1,7 @@
 const buttonCreateElem = document.querySelector('.create-btn');
 
 const buttonCreate = logButton = () => {
-  alert('done');
+  alert("done");
 };
 
 buttonCreateElem.addEventListener('click', buttonCreate);
