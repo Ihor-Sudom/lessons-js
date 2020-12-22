@@ -31,3 +31,4 @@ const renderListItems = listItems => {
 
   listElem.append(...listItemsElems);
 }
+
