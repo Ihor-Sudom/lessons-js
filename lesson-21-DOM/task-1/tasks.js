@@ -22,5 +22,5 @@ export const renderListItems = listItems => {
   });
   listElem.append(...listItemsElems);
 };
-renderListItems(tasks);
+
 
