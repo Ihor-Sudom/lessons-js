@@ -1,5 +1,5 @@
 
-const manageClasses = () => {
+export const manageClasses = () => {
   const liElemOne = document.querySelector('.one');
   liElemOne.classList.add('selected');
   const liElemTwo = document.querySelector('.two');
