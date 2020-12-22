@@ -1,4 +1,3 @@
-
 const tasks = [
   { text: 'Buy milk', done: false },
   { text: 'Pick up Tom from airport', done: false },
@@ -18,7 +17,7 @@ const renderListItems = listItems => {
           if (done) {
             listItemElem.classList.add('list__item_done');
           }
-          const checkboxElem = document.createEvent('input');
+          const checkboxElem = document.createElement('input');
           checkboxElem.setAttribute('type', 'checkbox');
           checkboxElem.checked = done;
           checkboxElem.classList.add('list__item-checkbox');
@@ -26,8 +25,10 @@ const renderListItems = listItems => {
 
           return listItemElem;
         });
+    
+  console.log(listItemsElems);
 
-        listElem.append(...listItemsElems);
+     listElem.append(...listItemsElems);
 }
 
 renderListItems(tasks);
