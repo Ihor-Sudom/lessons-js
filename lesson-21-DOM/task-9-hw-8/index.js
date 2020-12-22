@@ -1,11 +1,18 @@
 
 export const finishList = () => {
-  const liElem = document.createElement('li');
   const ulElem = document.querySelector('.list');
   const ulLiElem = document.querySelector('.special');
-  ulElem.prepend(liElem.textContent = '1');
-  ulLiElem.before(liElem.textContent = '4');
-  ulLiElem.after(liElem.textContent = '6');
-  ulElem.append(liElem.textContent = '8');
-  
+  const liElemOne = document.createElement('li');
+  liElemOne.textContent = '1';
+  ulElem.prepend(liElemOne);
+  const liElemFour = document.createElement('li');
+  liElemFour.textContent = '4';
+  ulLiElem.before(liElemFour);
+  const liElemSix = document.createElement('li');
+  liElemSix.textContent = '6';
+  ulLiElem.after(liElemSix);
+  const liElemEight = document.createElement('li');
+  liElemEight.textContent = '8';
+  ulElem.append(liElemEight);
 }
+
