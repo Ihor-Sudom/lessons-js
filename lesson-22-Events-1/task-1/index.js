@@ -16,6 +16,7 @@ const logGreenDiv = logTarget.bind(null, 'div', 'green');
 const logGreenP = logTarget.bind(null, 'p', 'green');
 const logGreenSpan = logTarget.bind(null, 'span', 'green');
 
+
 divElem.addEventListener('click', logGreyDiv, true);
 divElem.addEventListener('click', logGreenDiv);
 
@@ -24,6 +25,17 @@ pElem.addEventListener('click', logGreenP);
 
 spanElem.addEventListener('click', logGreySpan, true);
 spanElem.addEventListener('click', logGreenSpan);
+
+
+divElem.removeEventListener('click', logGreyDiv, true);
+divElem.removeEventListener('click', logGreenDiv);
+
+pElem.removeEventListener('click', logGreyP, true);
+pElem.removeEventListener('click', logGreenP);
+
+spanElem.removeEventListener('click', logGreySpan, true);
+spanElem.removeEventListener('click', logGreenSpan);
+
 
 const buttonClearElem = document.querySelector('.clear-btn');
 
