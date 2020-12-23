@@ -2,7 +2,7 @@
 const buttonElem = document.querySelector('.single-use-btn');
 
 
-const buttonClick = (event) => {
+const buttonClick = () => {
   console.log('clicked');
 };
 
