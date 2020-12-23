@@ -1,6 +1,6 @@
 const buttonCreateElem = document.querySelector('.create-btn');
 
-const buttonCreate = logButton = () => {
+export const buttonCreate = logButton = () => {
   alert("done");
 };
 
