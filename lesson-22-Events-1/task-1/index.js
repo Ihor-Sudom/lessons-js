@@ -26,22 +26,11 @@ pElem.addEventListener('click', logGreenP);
 spanElem.addEventListener('click', logGreySpan, true);
 spanElem.addEventListener('click', logGreenSpan);
 
-
-/* divElem.removeEventListener('click', logGreyDiv, true);
-divElem.removeEventListener('click', logGreenDiv);
-
-pElem.removeEventListener('click', logGreyP, true);
-pElem.removeEventListener('click', logGreenP);
-
-spanElem.removeEventListener('click', logGreySpan, true);
-spanElem.removeEventListener('click', logGreenSpan); */
-
-
 const buttonClearElem = document.querySelector('.clear-btn');
 
 const buttonClear = () => {
-  const eventListElem = document.querySelector('.events-list > span');
-  eventListElem.remove();
+  const eventListElem = document.querySelectorAll('.events-list > span');
+  eventListElem.forEach(el => el.remove());
 };
 
 buttonClearElem.addEventListener('click', buttonClear);
