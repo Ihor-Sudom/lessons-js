@@ -1,6 +1,6 @@
 const buttonCreateElem = document.querySelector('.create-btn');
 
-const buttonCreate = logButton = () => {
+const buttonCreate = () => {
   alert("done");
 };
 
