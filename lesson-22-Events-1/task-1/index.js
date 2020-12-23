@@ -39,17 +39,16 @@ spanElem.removeEventListener('click', logGreenSpan);
 
 const buttonClearElem = document.querySelector('.clear-btn');
 
-const buttonClear = logButton = () => {
-  const eventListElem = document.querySelectorAll('.events-list > span');
-  console.log(eventListElem);
-  eventListElem.map(el => el.remove());
+const buttonClear = () => {
+  const eventListElem = document.querySelector('.events-list > span');
+  eventListElem.remove();
 };
 
 buttonClearElem.addEventListener('click', buttonClear);
 
 const buttonAttachHandlers = document.querySelector('.attach-handlers-btn');
 
-const buttonAttach = logAttachHandlers = () => {
+const buttonAttach = () => {
   divElem.addEventListener('click', logGreyDiv, true);
   divElem.addEventListener('click', logGreenDiv);
   
@@ -64,7 +63,7 @@ buttonAttachHandlers.addEventListener('click', buttonAttach);
 
 const buttonRemoveHandlers = document.querySelector('.remove-handlers-btn');
 
-const buttonRemove = logRemoveHandlers = () => {
+const buttonRemove = () => {
   divElem.removeEventListener('click', logGreyDiv, true);
   divElem.removeEventListener('click', logGreenDiv);
   
