@@ -1,7 +1,7 @@
 
 const inputElem = document.querySelector('.text-input');
 
-const inputChange = logInput = () => {
+const inputChange = () => {
   console.log(inputElem.value);
 };
 

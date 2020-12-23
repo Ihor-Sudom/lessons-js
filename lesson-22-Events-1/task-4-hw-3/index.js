@@ -1,7 +1,7 @@
 
 const checkboxElem = document.querySelector('.task-status');
 
-const inputCheckbox = logCheckbox = () => {
+const inputCheckbox = () => {
   if (checkboxElem.checked) {
     console.log(true);
   } else {
