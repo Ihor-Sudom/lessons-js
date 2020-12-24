@@ -19,7 +19,7 @@ const renderListItems = listItems => {
           }
           const checkboxElem = document.createElement('input');
           checkboxElem.setAttribute('type', 'checkbox');
-          checkboxElem.setAttribute('data-id', 'box');
+          checkboxElem.setAttribute('data-id', `${Math.random()}`);
           checkboxElem.checked = done;
           checkboxElem.classList.add('list__item-checkbox');
           listItemElem.append(checkboxElem, text);
@@ -49,6 +49,29 @@ const buttonElemClick = () => {
 }
 
 buttonElem.addEventListener('click', buttonElemClick);
+
+
+const ulElem = document.querySelector('.list');
+
+const ulElemClick = (event) => {
+  const isCheckbox = event.target.classList.contains('list__item-checkbox');
+
+    if (!isCheckbox) {
+      return;
+    } 
+  
+  const checkboxData = event.target.dataset.id;
+  const checkbox = document.querySelector(`[data-id="${checkboxData}"]`);
+  const liElem = checkbox.closest('.list__item');
+  
+    if (checkbox.checked) {
+      liElem.classList.add('list__item_done');
+    } else {
+      liElem.classList.remove('list__item_done');
+    }
+}
+
+ulElem.addEventListener('click', ulElemClick);
 
 
 renderListItems(tasks);
