@@ -33,7 +33,7 @@ const renderListItems = listItems => {
 
 const buttonElem = document.querySelector('.btn');
 
-const buttonElemClick = () => {
+const additionListItems = () => {
   const inputElem = document.querySelector('.task-input');
   const listItemElems = document.querySelectorAll('.list__item');
   const inputTaskElem = document.querySelector('.task-input');
@@ -48,12 +48,12 @@ const buttonElemClick = () => {
   renderListItems(tasks);
 }
 
-buttonElem.addEventListener('click', buttonElemClick);
+buttonElem.addEventListener('click', additionListItems);
 
 
 const ulElem = document.querySelector('.list');
 
-const ulElemClick = (event) => {
+const changeCompletedTask = (event) => {
   const isCheckbox = event.target.classList.contains('list__item-checkbox');
 
     if (!isCheckbox) {
@@ -71,7 +71,7 @@ const ulElemClick = (event) => {
     }
 }
 
-ulElem.addEventListener('click', ulElemClick);
+ulElem.addEventListener('click', changeCompletedTask);
 
 
 renderListItems(tasks);
