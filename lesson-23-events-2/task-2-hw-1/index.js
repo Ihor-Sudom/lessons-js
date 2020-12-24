@@ -33,7 +33,7 @@ const renderListItems = listItems => {
 
 const buttonElem = document.querySelector('.btn');
 
-const additionListItems = () => {
+const additionListTasks = () => {
   const inputElem = document.querySelector('.task-input');
   const listItemElems = document.querySelectorAll('.list__item');
   const inputTaskElem = document.querySelector('.task-input');
@@ -48,7 +48,7 @@ const additionListItems = () => {
   renderListItems(tasks);
 }
 
-buttonElem.addEventListener('click', additionListItems);
+buttonElem.addEventListener('click', additionListTasks);
 
 
 const ulElem = document.querySelector('.list');
