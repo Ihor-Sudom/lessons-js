@@ -1,8 +1,12 @@
 
 
 export const getDiff = (startDate, endDate) => {
+  const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-  const differenceDay = Math.round((new Date(startDate).getTime() - new Date(endDate).getTime()) / (60 * 60 * 24 * 1000));
+  const newStartDate = Date.UTC(new Date(startDate).getFullYear(), new Date(startDate).getMonth(), new Date(startDate).getDate());
+  const newEndDate = Date.UTC(new Date(endDate).getFullYear(), new Date(endDate).getMonth(), new Date(endDate).getDate());
+
+  const differenceDay = (newStartDate - newEndDate) / _MS_PER_DAY;
   const differenceHours = new Date(startDate).getHours() - new Date(endDate).getHours();
   const differenceMinutes = new Date(startDate).getMinutes() - new Date(endDate).getMinutes();
   const differenceSeconds = new Date(startDate).getSeconds() - new Date(endDate).getSeconds();
@@ -11,7 +15,4 @@ export const getDiff = (startDate, endDate) => {
 };
 
 
-/* const result = getDiff(new Date(), new Date(2020, 11, 15, 16, 10, 0));
-console.log(result);
-console.log(new Date());
-console.log(new Date(2020, 11, 15, 16, 10, 0)); */
+
