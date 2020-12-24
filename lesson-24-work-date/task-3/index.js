@@ -11,7 +11,7 @@ export const getDiff = (startDate, endDate) => {
   const differenceMinutes = new Date(startDate).getMinutes() - new Date(endDate).getMinutes();
   const differenceSeconds = new Date(startDate).getSeconds() - new Date(endDate).getSeconds();
 
-  return `${differenceDay}d ${differenceHours}h ${differenceMinutes}m ${differenceSeconds}s`;
+  return `${Math.abs(differenceDay)}d ${Math.abs(differenceHours)}h ${Math.abs(differenceMinutes)}m ${Math.abs(differenceSeconds)}s`;
 };
 
 
