@@ -42,7 +42,6 @@ const buttonElem = document.querySelector('.btn');
 
 const additionListTasks = () => {
   const inputElem = document.querySelector('.task-input');
-  const listItemElems = document.querySelectorAll('.list__item');
   const inputTaskElem = document.querySelector('.task-input');
 
     if (inputElem.value === '') {
