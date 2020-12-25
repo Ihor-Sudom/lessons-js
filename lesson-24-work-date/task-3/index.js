@@ -10,5 +10,5 @@ export const getDiff = (startDate, endDate) => {
   return `${differenceDay}d ${differenceHours}h ${differenceMinutes}m ${differenceSeconds}s`;
 };
 
-const result = getDiff(new Date(2020, 2, 10, 0, 15, 59), new Date(2018, 2, 10, 9, 45, 45));
-console.log(result);
+/* const result = getDiff(new Date(2020, 2, 10, 0, 15, 59), new Date(2018, 2, 10, 9, 45, 45)); */
+
