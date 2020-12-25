@@ -68,13 +68,13 @@ const changeCompletedTask = (event) => {
   
   const checkbox = document.getElementById(`${event.target.id}`);
   const liElem = checkbox.closest('.list__item');
-  const text2 = liElem.innerText;
+  const textList = liElem.innerText;
 
   if (checkbox.checked) {
-    tasks.map(el => el.text == text2 ? el.done = true : el);
+    tasks.map(el => el.text == textList ? el.done = true : el);
     updatingList();
   } else {
-    tasks.map(el => el.text == text2 ? el.done = false : el);
+    tasks.map(el => el.text == textList ? el.done = false : el);
     updatingList();
   }
 }
