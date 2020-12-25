@@ -6,12 +6,12 @@ export const getDiff = (startDate, endDate) => {
   const newStartDate = new Date(new Date(startDate).getFullYear(), new Date(startDate).getMonth(), new Date(startDate).getDate());
   const newEndDate = new Date(new Date(endDate).getFullYear(), new Date(endDate).getMonth(), new Date(endDate).getDate());
 
-  const differenceDay = (newStartDate - newEndDate) / _MS_PER_DAY;
-  const differenceHours = new Date(startDate).getHours() - new Date(endDate).getHours();
-  const differenceMinutes = new Date(startDate).getMinutes() - new Date(endDate).getMinutes();
-  const differenceSeconds = new Date(startDate).getSeconds() - new Date(endDate).getSeconds();
+  const differenceDay = (newEndDate - newStartDate) / _MS_PER_DAY;
+  const differenceHours = new Date(endDate).getHours() - new Date(startDate).getHours();
+  const differenceMinutes = new Date(endDate).getMinutes() - new Date(startDate).getMinutes();
+  const differenceSeconds = new Date(endDate).getSeconds() - new Date(startDate).getSeconds();
 
-  return `${Math.abs(differenceDay)}d ${Math.abs(differenceHours)}h ${Math.abs(differenceMinutes)}m ${Math.abs(differenceSeconds)}s`;
+  return `${differenceDay}d ${differenceHours}h ${differenceMinutes}m ${differenceSeconds}s`;
 };
 
 
