@@ -19,7 +19,7 @@ const renderListItems = listItems => {
           }
           const checkboxElem = document.createElement('input');
           checkboxElem.setAttribute('type', 'checkbox');
-          checkboxElem.setAttribute('data-id', `${Math.random()}`);
+          checkboxElem.setAttribute('id', `${Math.random()}`);
           checkboxElem.checked = done;
           checkboxElem.classList.add('list__item-checkbox');
           listItemElem.append(checkboxElem, text);
@@ -29,6 +29,13 @@ const renderListItems = listItems => {
 
      listElem.append(...listItemsElems);
 }
+
+
+const updatingList = () => {
+  const listItemElems = document.querySelectorAll('.list__item');
+  listItemElems.forEach(el => el.remove());
+  renderListItems(tasks);
+};
 
 
 const buttonElem = document.querySelector('.btn');
@@ -43,9 +50,8 @@ const additionListTasks = () => {
     }
 
   tasks.push({text: inputElem.value, done: false});
-  listItemElems.forEach(el => el.remove());
   inputTaskElem.value = '';
-  renderListItems(tasks);
+  updatingList();
 }
 
 buttonElem.addEventListener('click', additionListTasks);
@@ -60,15 +66,11 @@ const changeCompletedTask = (event) => {
       return;
     } 
   
-  const checkboxData = event.target.dataset.id;
-  const checkbox = document.querySelector(`[data-id="${checkboxData}"]`);
+  const checkbox = document.getElementById(`${event.target.id}`);
   const liElem = checkbox.closest('.list__item');
   
-    if (checkbox.checked) {
-      liElem.classList.add('list__item_done');
-    } else {
-      liElem.classList.remove('list__item_done');
-    }
+  return checkbox.checked ? liElem.classList.add('list__item_done')
+                          : liElem.classList.remove('list__item_done');
 }
 
 ulElem.addEventListener('click', changeCompletedTask);
