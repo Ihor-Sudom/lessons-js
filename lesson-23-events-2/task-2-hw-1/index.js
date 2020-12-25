@@ -30,12 +30,17 @@ const renderListItems = listItems => {
      listElem.append(...listItemsElems);
 }
 
+const updatingList = () => {
+  const listItemElems = document.querySelectorAll('.list__item');
+  listItemElems.forEach(el => el.remove());
+  renderListItems(tasks);
+};
+
 
 const buttonElem = document.querySelector('.btn');
 
 const additionListTasks = () => {
   const inputElem = document.querySelector('.task-input');
-  const listItemElems = document.querySelectorAll('.list__item');
   const inputTaskElem = document.querySelector('.task-input');
 
     if (inputElem.value === '') {
@@ -43,9 +48,8 @@ const additionListTasks = () => {
     }
 
   tasks.push({text: inputElem.value, done: false});
-  listItemElems.forEach(el => el.remove());
   inputTaskElem.value = '';
-  renderListItems(tasks);
+  updatingList();
 }
 
 buttonElem.addEventListener('click', additionListTasks);
@@ -63,11 +67,14 @@ const changeCompletedTask = (event) => {
   const checkboxData = event.target.dataset.id;
   const checkbox = document.querySelector(`[data-id="${checkboxData}"]`);
   const liElem = checkbox.closest('.list__item');
+  const liElemText = liElem.innerText;
   
     if (checkbox.checked) {
-      liElem.classList.add('list__item_done');
+      tasks.map(el => el.text == liElemText ? el.done = true : el);
+      updatingList();
     } else {
-      liElem.classList.remove('list__item_done');
+      tasks.map(el => el.text == liElemText ? el.done = false : el);
+      updatingList();
     }
 }
 
