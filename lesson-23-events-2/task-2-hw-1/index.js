@@ -1,25 +1,26 @@
 const tasks = [
-  { text: 'Buy milk', done: false },
-  { text: 'Pick up Tom from airport', done: false },
-  { text: 'Visit party', done: false },
-  { text: 'Visit doctor', done: true },
-  { text: 'Buy meat', done: true },
+  { text: 'Buy milk', done: false, id: '1' },
+  { text: 'Pick up Tom from airport', done: false, id: '2' },
+  { text: 'Visit party', done: false, id: '3' },
+  { text: 'Visit doctor', done: true, id: '4' },
+  { text: 'Buy meat', done: true, id: '5' },
 ];
 
+const listElem = document.querySelector('.list');
+
 const renderListItems = listItems => {
-  const listElem = document.querySelector('.list');
 
   const listItemsElems = listItems
         .sort((a, b) => a.done - b.done)
-        .map(({text, done}) => {
+        .map(({text, done, id}) => {
           const listItemElem = document.createElement('li');
           listItemElem.classList.add('list__item');
+          listItemElem.dataset.id = id;
           if (done) {
             listItemElem.classList.add('list__item_done');
           }
           const checkboxElem = document.createElement('input');
           checkboxElem.setAttribute('type', 'checkbox');
-          checkboxElem.setAttribute('id', `${Math.random()}`);
           checkboxElem.checked = done;
           checkboxElem.classList.add('list__item-checkbox');
           listItemElem.append(checkboxElem, text);
@@ -48,15 +49,13 @@ const additionListTasks = () => {
       return;
     }
 
-  tasks.push({text: inputElem.value, done: false});
+  tasks.push({text: inputElem.value, done: false, id: `${tasks.length + 1}`});
   inputTaskElem.value = '';
   updatingList();
 }
 
 buttonElem.addEventListener('click', additionListTasks);
 
-
-const ulElem = document.querySelector('.list');
 
 const changeCompletedTask = (event) => {
   const isCheckbox = event.target.classList.contains('list__item-checkbox');
@@ -65,20 +64,13 @@ const changeCompletedTask = (event) => {
       return;
     } 
   
-  const checkbox = document.getElementById(`${event.target.id}`);
-  const liElem = checkbox.closest('.list__item');
-  const textList = liElem.innerText;
-
-  if (checkbox.checked) {
-    tasks.map(el => el.text == textList ? el.done = true : el);
+    const chosenListItem = event.target.closest('.list__item');
+    const chosenTask = tasks.find(item => item.id === chosenListItem.dataset.id);
+    chosenTask.done = event.target.checked;
     updatingList();
-  } else {
-    tasks.map(el => el.text == textList ? el.done = false : el);
-    updatingList();
-  }
 }
 
-ulElem.addEventListener('click', changeCompletedTask);
+listElem.addEventListener('click', changeCompletedTask);
 
 
 renderListItems(tasks);
