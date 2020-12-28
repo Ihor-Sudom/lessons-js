@@ -19,7 +19,7 @@ export const changeCompletedTask = (event) => {
             ...task,
             done,
             finishDate: done
-              ? new Date().toISOString()
+              ? new Date().getTime()
               : null
           };
         }

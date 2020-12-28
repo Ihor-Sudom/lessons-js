@@ -14,7 +14,7 @@ export const additionListTasks = () => {
   const newTasksList = tasksList.concat({
     text: inputElem.value,
     done: false,
-    createDate: new Date().toISOString(), 
+    createDate: new Date().getTime(), 
     id: Math.random().toString(),
   });
 
