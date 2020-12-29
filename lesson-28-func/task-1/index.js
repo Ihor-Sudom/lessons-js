@@ -4,7 +4,7 @@ const calc = number => {
 
   const calculator = {
     add(value) {
-      result += velue;
+      result += value;
       return this;
     },
 
