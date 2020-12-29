@@ -1,5 +1,5 @@
 
-const shmoment = value => {
+export const shmoment = value => {
   let result = {
     years: new Date(value).getFullYear(),
     months: new Date(value).getMonth(),
