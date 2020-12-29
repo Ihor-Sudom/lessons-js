@@ -22,6 +22,10 @@ const calc = number => {
       result /= value;
       return this;
     },
+
+    result() {
+      return result;
+    },
   };
 
   return calculator;
