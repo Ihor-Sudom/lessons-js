@@ -24,5 +24,5 @@ const calc = number => {
     },
   };
 
-  return result;
+  return calculator;
 };
