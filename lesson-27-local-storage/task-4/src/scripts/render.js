@@ -2,9 +2,10 @@ import { getItem } from './storage.js';
 
 const taskListSorte = (a, b) => {
   if (!a.done) {
-    return b.createDate - a.createDate;
-  } else if (a.done && b.done) {
-    return b.finishDate - a.finishDate;
+    return new Date(b.createDate) - new Date(a.createDate);
+  }
+  if (a.done && b.done) {
+    return new Date(b.finishDate) - new Date(a.finishDate);
   };
 }
 
