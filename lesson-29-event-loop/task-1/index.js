@@ -17,7 +17,7 @@ export const addImage = (imgSrc, callback) => {
 }
 
 //callack example
-const onImageLoaded = (error, imgElem) => {
+const callback = (error, imgElem) => {
   if (error) {
       console.log(error);
       return;
@@ -28,4 +28,4 @@ const onImageLoaded = (error, imgElem) => {
 }
 
 //test call
-//addImage("https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", onImageLoaded);
+//addImage("https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg", callback);
