@@ -20,3 +20,6 @@ export const addImage = (imgSrc) => {
   return p;
 }
 
+const resultPromise = addImage(imgSrc);
+resultPromise.catch(error => console.log(error));
+
