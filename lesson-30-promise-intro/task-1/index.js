@@ -7,17 +7,14 @@ export const addImage = (imgSrc) => {
     const containerElem = document.querySelector('.page');
     containerElem.append(imgElem);
   
-    const onImageLoaded = () => {
-      resolve({width: 200, height: 100});
-    };
+    const onImageLoaded = () => resolve({width, height});
   
     imgElem.addEventListener('load', onImageLoaded);
   
     const onError = () => reject('Image load is failed...');
     imgElem.addEventListener('error', onError);
   });
-
+  
   return p;
 }
-
 
