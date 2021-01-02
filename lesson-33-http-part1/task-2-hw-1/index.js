@@ -9,7 +9,8 @@ export const getTasksList = () => fetch(`${baseUrl}`)
 /* getTaskById code here */
 export const getTaskById = (taskId) => fetch(`${baseUrl}`)
   .then(response => response.json())
-  .then(response => response.filter(el => el.id === taskId));
+  .then(response => response.find(el => el.id === taskId));
+
 
 
 
