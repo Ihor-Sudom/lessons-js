@@ -5,10 +5,12 @@ export const getTasksList = () => fetch(`${baseUrl}`)
     .then(response => response.json());
 
 
+
 /* getTaskById code here */
 export const getTaskById = (taskId) => fetch(`${baseUrl}`)
   .then(response => response.json())
-  .then(response => response[taskId - 1]);
+  .then(response => response.filter(el => el.id === taskId));
+
 
 
 
