@@ -20,12 +20,13 @@ const servers = [
   'https://server.com/au/userld',
 ];
 
-export const getUserASAP = userId => {
+/* export */ const getUserASAP = userId => {
   const userUrls = servers
-    .map(serverUrl => `${serverUrl}/users/${userId}`);
+    .map(serverUrl => `${serverUrl}`);
+  console.log(userUrls);
 
-  const request = userUrls
+  const requests = userUrls
     .map(userUrl => request(userUrl));
 
-  return Promise.race(request);
+  return Promise.race(requests);
 };
