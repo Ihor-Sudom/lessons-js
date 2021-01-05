@@ -4,7 +4,17 @@ const emailElem = document.querySelector('#email');
 const textElem = document.querySelector('#name');
 const passwordElem = document.querySelector('#password');
 
-const errorElem = document.querySelector('.error-text');
+battonElem = document.querySelector('.submit-button');
+
+
+const onInputValid = () => {
+  if (validInputElem.reportValidity()) {
+    battonElem.disabled = false;
+  };
+}
+
+const validInputElem = document.querySelector('.login-form');
+validInputElem.addEventListener('input', onInputValid);
 
 
 const submittingFormData = (event) => {
