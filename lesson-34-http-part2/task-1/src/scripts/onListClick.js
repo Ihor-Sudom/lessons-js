@@ -18,5 +18,5 @@ export const onListClick = (event) => {
     });
   };
 
-  changeCompletedTask(event);
+  changeCompletedTask();
 }
