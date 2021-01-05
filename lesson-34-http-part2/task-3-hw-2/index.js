@@ -10,7 +10,9 @@ battonElem = document.querySelector('.submit-button');
 const onInputValid = () => {
   if (validInputElem.reportValidity()) {
     battonElem.disabled = false;
-  };
+  } else {
+    battonElem.disabled = true;
+  }
 }
 
 const validInputElem = document.querySelector('.login-form');
