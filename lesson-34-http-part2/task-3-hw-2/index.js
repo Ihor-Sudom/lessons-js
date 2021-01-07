@@ -20,11 +20,16 @@ validInputElem.addEventListener('input', onInputValid);
 const submittingFormData = (event) => {
   event.preventDefault();
 
-  const user = {
+  const user = [...new FormData(validInputElem)].reduce(
+    (acc, [field, value]) => ({ ...acc, [field]: value }),
+    {},
+  );
+
+  /* const user = {
     email: emailElem.value,
     userName: textElem.value,
     password: passwordElem.value,
-  };
+  }; */
 
   createUserForm(user)
     .then(response => response.ok ? response : Promise.reject(response))
@@ -47,10 +52,10 @@ const createUserForm = user =>
     body: JSON.stringify(user),
   });
 
-const getUserForm = (event) =>
+const getUserForm = () =>
   fetch(baseUrl)
   .then(response => response.json())
-  .then(value => alert(JSON.stringify(value[value.length - 1])));
+  .then(value => alert(JSON.stringify(value)));
 
 const changeForm = () => {
   emailElem.value = '';
