@@ -49,7 +49,7 @@ const createUserForm = user =>
 const getUserForm = () =>
   fetch(baseUrl)
   .then(response => response.json())
-  .then(value => alert(JSON.stringify(value)));
+  .then(value => alert(JSON.stringify(value[value.length - 1])));
 
 const changeForm = () => {
   emailElem.value = '';
