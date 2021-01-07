@@ -1,41 +1,36 @@
 const baseUrl = 'https://5ff2e7d128c3980017b18ca3.mockapi.io/api/v1/form';
 
-const emailElem = document.querySelector('#email');
-const textElem = document.querySelector('#name');
-const passwordElem = document.querySelector('#password');
-
 const battonElem = document.querySelector('.submit-button');
 const errorElem = document.querySelector('.error-text');
-const validInputElem = document.querySelector('.login-form');
+const inputsElem = document.querySelector('.login-form');
 
 
 const onInputValid = () => 
-  validInputElem.reportValidity()
+  inputsElem.reportValidity()
     ? battonElem.disabled = false 
     : battonElem.disabled = true;
 
-validInputElem.addEventListener('input', onInputValid);
+inputsElem.addEventListener('input', onInputValid);
 
 
 const submittingFormData = (event) => {
   event.preventDefault();
 
-  const user = [...new FormData(validInputElem)].reduce(
+  const user = [...new FormData(inputsElem)].reduce(
     (acc, [field, value]) => ({ ...acc, [field]: value }),
     {},
   );
 
   createUserForm(user)
     .then(response => response.ok ? response : Promise.reject(response))
-    .then(() => changeForm())
+    .then(() => inputsElem.reset())
     .then(() => getUserForm())
     .catch(() => errorElem.textContent = 'Failed to create user')
-    .finally(() => validInputElem.addEventListener('input', textError))
+    .finally(() => inputsElem.addEventListener('input', textError))
 };
 
 const submitButtonElem = document.querySelector('.login-form');
 submitButtonElem.addEventListener('submit', submittingFormData);
-
 
 const createUserForm = user =>
   fetch(baseUrl, {
@@ -50,12 +45,6 @@ const getUserForm = () =>
   fetch(baseUrl)
   .then(response => response.json())
   .then(value => alert(JSON.stringify(value)));
-
-const changeForm = () => {
-  emailElem.value = '';
-  textElem.value = '';
-  passwordElem.value = '';
-};
 
 const textError = event => {
   if (event.type === 'input') {
