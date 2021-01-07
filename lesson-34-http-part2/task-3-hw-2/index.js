@@ -32,7 +32,7 @@ const submittingFormData = (event) => {
     .then(() => getUserForm())
     .catch(() => errorElem.textContent = 'Failed to create user')
     .finally(() => validInputElem.addEventListener('input', textErrorElem))
-}
+};
 
 const submitButtonElem = document.querySelector('.login-form');
 submitButtonElem.addEventListener('submit', submittingFormData);
@@ -47,19 +47,19 @@ const createUserForm = user =>
     body: JSON.stringify(user),
   });
 
-const getUserForm = () =>
+const getUserForm = (event) =>
   fetch(baseUrl)
   .then(response => response.json())
-  .then(value => alert(JSON.stringify(...value/* [value.length - 1] */)))
+  .then(value => alert(JSON.stringify(value[value.length - 1])));
 
 const changeForm = () => {
   emailElem.value = '';
   textElem.value = '';
   passwordElem.value = '';
-}
+};
 
 const textErrorElem = event => {
   if (event.type === 'input') {
     errorElem.textContent = '';
   };
-}
+};
