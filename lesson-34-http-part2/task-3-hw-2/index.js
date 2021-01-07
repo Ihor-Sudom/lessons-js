@@ -6,6 +6,7 @@ const passwordElem = document.querySelector('#password');
 
 const battonElem = document.querySelector('.submit-button');
 const errorElem = document.querySelector('.error-text');
+const validInputElem = document.querySelector('.login-form');
 
 
 const onInputValid = () => 
@@ -13,7 +14,6 @@ const onInputValid = () =>
     ? battonElem.disabled = false 
     : battonElem.disabled = true;
 
-const validInputElem = document.querySelector('.login-form');
 validInputElem.addEventListener('input', onInputValid);
 
 
@@ -25,18 +25,12 @@ const submittingFormData = (event) => {
     {},
   );
 
-  /* const user = {
-    email: emailElem.value,
-    userName: textElem.value,
-    password: passwordElem.value,
-  }; */
-
   createUserForm(user)
     .then(response => response.ok ? response : Promise.reject(response))
     .then(() => changeForm())
     .then(() => getUserForm())
     .catch(() => errorElem.textContent = 'Failed to create user')
-    .finally(() => validInputElem.addEventListener('input', textErrorElem))
+    .finally(() => validInputElem.addEventListener('input', textError))
 };
 
 const submitButtonElem = document.querySelector('.login-form');
@@ -63,7 +57,7 @@ const changeForm = () => {
   passwordElem.value = '';
 };
 
-const textErrorElem = event => {
+const textError = event => {
   if (event.type === 'input') {
     errorElem.textContent = '';
   };
