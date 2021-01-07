@@ -1,4 +1,4 @@
-const baseUrl = 'https://5ff2e7d128c3980017b18ca3.mockapi.io/api/v1/form1';
+const baseUrl = 'https://5ff2e7d128c3980017b18ca3.mockapi.io/api/v1/form';
 
 const emailElem = document.querySelector('#email');
 const textElem = document.querySelector('#name');
@@ -31,14 +31,7 @@ const submittingFormData = (event) => {
     .then(() => changeForm())
     .then(() => getUserForm())
     .catch(() => errorElem.textContent = 'Failed to create user')
-    .finally(() => {
-      validInputElem.addEventListener('input', (event) => {
-        if (event.type === 'input') {
-          errorElem.textContent = ''
-        }
-      })
-    })
-
+    .finally(() => validInputElem.addEventListener('input', textErrorElem))
 }
 
 const submitButtonElem = document.querySelector('.login-form');
@@ -54,15 +47,19 @@ const createUserForm = user =>
     body: JSON.stringify(user),
   });
 
-
 const getUserForm = () =>
   fetch(baseUrl)
   .then(response => response.json())
-  .then(value => alert(JSON.stringify(value[value.length - 1])))
-
+  .then(value => alert(JSON.stringify(...value/* [value.length - 1] */)))
 
 const changeForm = () => {
   emailElem.value = '';
   textElem.value = '';
   passwordElem.value = '';
+}
+
+const textErrorElem = event => {
+  if (event.type === 'input') {
+    errorElem.textContent = '';
+  };
 }
