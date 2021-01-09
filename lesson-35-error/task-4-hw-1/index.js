@@ -1,9 +1,9 @@
 
 export const parseUser = str => {
   try {
-    console.log(JSON.parse(str));
+     return JSON.parse(str);
   } catch (e) {
-    console.log(null);
+    return null;
   };
 };
 
