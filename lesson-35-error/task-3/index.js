@@ -24,10 +24,10 @@ const onSearchUser = () => {
       renderUserData(userData);
       return userData.repos_url;
     })
-  .then(url => fetchRepositories(url))
-  .then(repoList => renderRepos(repoList))
-  .catch(err => alert(err.message))
-  .finally(() => hideSpinner());
+    .then(url => fetchRepositories(url))
+    .then(repoList => renderRepos(repoList))
+    .catch(err => alert(err.message))
+    .finally(() => hideSpinner());
 };
 
 showUserBtnElem.addEventListener('click', onSearchUser);
