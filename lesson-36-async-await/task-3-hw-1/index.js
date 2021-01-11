@@ -1,15 +1,14 @@
-export const getUsersBlogs = async (...userId) => await Promise.all(fetchUserData(...userId));
 
-const fetchUserData = (...userId) => {
-  return userId.map(el => {
-   return fetch(`https://api.github.com/users/${el}`)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Failed to load data');
-    })
-    .then(response => response.blog);
-  });
+export const getUsersBlogs = (...userId) => {
+  return Promise.all(userId.map(el => fetchUserData(el)));
 };
 
+const fetchUserData = async (userId) => {
+  try {
+    const response = await fetch(`https://api.github.com/users/${userId}`);
+    const userData = await response.json();
+    return userData.blog;
+  } catch(err) {
+    throw new Error('Failed to fetch user');
+  };
+};
