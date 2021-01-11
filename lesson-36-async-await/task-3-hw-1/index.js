@@ -4,7 +4,7 @@ export const getUsersBlogs = (...userId) => {
   try {
     return Promise.all(userId.map(el => fetchUserData(el).then(userData => userData.blog)));
   } catch (err) {
-    throw new Error(err.message);
+    console.log(err.message);
   }
 };
 
