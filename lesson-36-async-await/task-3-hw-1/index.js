@@ -1,8 +1,4 @@
-export const getUsersBlogs = async (...userId) => {
-  const userImail = await Promise.all(fetchUserData(...userId));
-  return userImail.map(el => el.blog);
-}
-
+export const getUsersBlogs = async (...userId) => await Promise.all(fetchUserData(...userId));
 
 const fetchUserData = (...userId) => {
   return userId.map(el => {
@@ -12,6 +8,8 @@ const fetchUserData = (...userId) => {
         return response.json();
       }
       throw new Error('Failed to load data');
-    });
+    })
+    .then(response => response.blog);
   });
 };
+
