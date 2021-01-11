@@ -1,4 +1,4 @@
-/* export */ const getUsersBlogs = async (...userId) => {
+export const getUsersBlogs = async (...userId) => {
   const userImail = await Promise.all(fetchUserData(...userId));
   return userImail.map(el => el.blog);
 }
