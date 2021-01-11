@@ -1,14 +1,13 @@
 
 export const getUsersBlogs = (...userId) => {
-  return Promise.all(userId.map(el => fetchUserData(el)));
+  return Promise.all(userId.map(el => fetchUserData(el).then(userData => userData.blog)));
 };
 
-const fetchUserData = async (userId) => {
+const fetchUserData = async userId => {
   try {
     const response = await fetch(`https://api.github.com/users/${userId}`);
-    const userData = await response.json();
-    return userData.blog;
+    return response.json();
   } catch(err) {
-    throw new Error('Failed to fetch user');
+    throw new Error(err.message);
   };
 };
